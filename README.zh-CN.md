@@ -20,6 +20,60 @@
 
 这份 README 的模型覆盖，按 **2026 年 7 月 16 日** 核对 CyberBara 公共 API 参考文档和相关生态文档整理。
 
+PyPI 安装：
+
+```bash
+pip install seedance-api
+```
+
+npm 安装：
+
+```bash
+npm install seedance-api
+```
+
+Python 最短示例：
+
+```python
+from seedance_api import SeedanceClient
+
+client = SeedanceClient("YOUR_API_KEY", model="seedance-2-stable")
+created = client.text_to_video(
+    "Creator-style portrait motion with realistic skin texture.",
+    duration="10",
+    aspect_ratio="9:16",
+    resolution="1080p",
+)
+task = client.wait_for_task(created["task_id"])
+print(task["output"]["videos"])
+```
+
+Node.js 最短示例：
+
+```js
+const { SeedanceClient } = require("seedance-api");
+
+async function main() {
+  const client = new SeedanceClient(process.env.CYBERBARA_API_KEY, {
+    model: "seedance-2-stable"
+  });
+
+  const created = await client.textToVideo(
+    "Creator-style portrait motion with realistic skin texture.",
+    {
+      duration: "10",
+      aspectRatio: "9:16",
+      resolution: "1080p"
+    }
+  );
+
+  const task = await client.waitForTask(created.task_id);
+  console.log(task.output?.videos || []);
+}
+
+main().catch(console.error);
+```
+
 [模型覆盖](#模型覆盖) | [能力对比](#能力对比) | [适合谁](#适合谁) | [快速开始](#快速开始) | [模型说明](#模型说明)
 
 ---

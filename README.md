@@ -20,6 +20,60 @@ This repository is a developer-facing guide for:
 
 Model coverage in this README is aligned to the CyberBara public API reference and related CyberBara ecosystem docs as checked on **July 16, 2026**.
 
+Install from PyPI:
+
+```bash
+pip install seedance-api
+```
+
+Install from npm:
+
+```bash
+npm install seedance-api
+```
+
+Python quick example:
+
+```python
+from seedance_api import SeedanceClient
+
+client = SeedanceClient("YOUR_API_KEY", model="seedance-2-stable")
+created = client.text_to_video(
+    "Creator-style portrait motion with realistic skin texture.",
+    duration="10",
+    aspect_ratio="9:16",
+    resolution="1080p",
+)
+task = client.wait_for_task(created["task_id"])
+print(task["output"]["videos"])
+```
+
+Node.js quick example:
+
+```js
+const { SeedanceClient } = require("seedance-api");
+
+async function main() {
+  const client = new SeedanceClient(process.env.CYBERBARA_API_KEY, {
+    model: "seedance-2-stable"
+  });
+
+  const created = await client.textToVideo(
+    "Creator-style portrait motion with realistic skin texture.",
+    {
+      duration: "10",
+      aspectRatio: "9:16",
+      resolution: "1080p"
+    }
+  );
+
+  const task = await client.waitForTask(created.task_id);
+  console.log(task.output?.videos || []);
+}
+
+main().catch(console.error);
+```
+
 [Model Coverage](#model-coverage) | [Comparison](#comparison) | [Who It's For](#who-its-for) | [Quick Start](#quick-start) | [Per-Model Notes](#per-model-notes)
 
 ---
