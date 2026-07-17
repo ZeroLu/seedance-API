@@ -1,3 +1,5 @@
+Last updated on 16:33:05 17-07-2026
+
 # Seedance API 中文说明
 
 [English README](./README.md) | [CyberBara API 入口](https://cyberbara.com/api) | [CyberBara API 参考](https://cyberbara.com/docs/api-reference?__cyberbara_session=1) | [Ultimate AI Media Generator Skill](https://github.com/ZeroLu/Ultimate-AI-Media-Generator-Skill) | [Awesome Seedance](https://github.com/ZeroLu/awesome-seedance)
